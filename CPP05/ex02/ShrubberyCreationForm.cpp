@@ -5,7 +5,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(): Form()
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target): Form("Shrubbery Creation Form", target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): Form("Shrubbery Creation Form", target, 145, 137)
 {
 
 }
@@ -19,18 +19,19 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	ShrubberyCreationForm(rhs).swap(*this);
 	if (M_DEBUG == 1)
-		std::cout << "Form " << this->_name << " copy operated" << std::endl;
+		std::cout << "Form " << this->getName() << " copy operated" << std::endl;
 	return (*this);
 }
 
-void	ShrubberyCreationForm::swap(ShrubberyCreationForm &other)
+/* void	ShrubberyCreationForm::swap(ShrubberyCreationForm &other)
 {
 	std::swap(this->_isSigned, other._isSigned);
-}
+} */
 
-void	ShrubberyCreationForm::executeConcrete(const Bureaucrat &executor)
+void	ShrubberyCreationForm::executeConcrete() const
 {
-	ofstream	shrubbery;
+	std::ofstream	shrubbery;
+
 	shrubbery.open(this->getTarget().c_str());
 	shrubbery << "                                               ." << 		std::endl;
 	shrubbery << "                                    .         ;" << 		std::endl;

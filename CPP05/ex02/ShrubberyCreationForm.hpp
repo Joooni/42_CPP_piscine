@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <fstream>
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
 
@@ -14,8 +15,8 @@ class ShrubberyCreationForm: public Form
 		ShrubberyCreationForm(const std::string target);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 
-		void			swap(ShrubberyCreationForm &other)
-		virtual void	executeConcrete(const Bureaucrat &executor) const-;
+//		void			swap(ShrubberyCreationForm &other);
+		virtual void	executeConcrete() const;
 };
 
 #endif

@@ -5,7 +5,7 @@ RobotomyRequestForm::RobotomyRequestForm(): Form()
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target): Form("Robotomy Request Form", target, 145, 137)
+RobotomyRequestForm::RobotomyRequestForm(const std::string target): Form("Robotomy Request Form", target, 145, 137)
 {
 
 }
@@ -19,16 +19,16 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 {
 	RobotomyRequestForm(rhs).swap(*this);
 	if (M_DEBUG == 1)
-		std::cout << "Form " << this->_name << " copy operated" << std::endl;
+		std::cout << "Form " << this->getName() << " copy operated" << std::endl;
 	return (*this);
 }
 
-void	RobotomyRequestForm::swap(RobotomyRequestForm &other)
+/* void	RobotomyRequestForm::swap(RobotomyRequestForm &other)
 {
 	std::swap(this->_isSigned, other._isSigned);
-}
+} */
 
-void	RobotomyRequestForm::executeConcrete(const Bureaucrat &executor)
+void	RobotomyRequestForm::executeConcrete() const
 {
 	srand(time(NULL));   // Initialization, should only be called once.
 	std::cout << "*skrrbzzzzzz biuuuuuuuuu bzzzzzzzz*" << std::endl;

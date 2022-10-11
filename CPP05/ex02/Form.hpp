@@ -20,7 +20,7 @@ class Form
 		Form &operator=(const Form &rhs);
 		~Form();
 
-		void	swap(Form &other);
+		virtual void	swap(Form &other);
 
 		std::string		getName() const;
 		bool			getSignedStatus() const;
@@ -29,7 +29,7 @@ class Form
 		std::string		getTarget() const;
 		void			beSigned(Bureaucrat &bc);
 		void			execute(const Bureaucrat &executor) const;
-		virtual void	executeConcrete(const Bureaucrat &executor) const = 0;
+		virtual void	executeConcrete() const = 0;
 
 		class GradeTooHighException: public std::exception
 		{

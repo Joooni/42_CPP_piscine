@@ -24,9 +24,7 @@ Form::Form(const Form &src): _name(src._name), _target(src._target), _isSigned(s
 
 Form	&Form::operator=(const Form &rhs)
 {
-	Form(rhs).swap(*this);
-	if (M_DEBUG == 1)
-		std::cout << "Form " << this->_name << " copy operated" << std::endl;
+	this->_isSigned = rhs._isSigned;
 	return (*this);
 }
 
@@ -79,7 +77,7 @@ void	Form::execute(const Bureaucrat &executor) const
 		throw Form::GradeTooLowException();
 	if (this->_isSigned != true)
 		throw Form::FormNotSignedException();
-	executeConcrete(executor);
+	executeConcrete();
 }
 
 const char *Form::GradeTooLowException::what() const throw()

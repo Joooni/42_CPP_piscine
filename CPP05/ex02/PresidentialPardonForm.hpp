@@ -12,9 +12,10 @@ class PresidentialPardonForm: public Form
 		PresidentialPardonForm();
 		PresidentialPardonForm(const PresidentialPardonForm &src);
 		PresidentialPardonForm(const std::string target);
-
-		void			swap(PresidentialPardonForm &other);
-		virtual void	executeConcrete(const Bureaucrat &executor) const;
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
+		
+//		void			swap(PresidentialPardonForm &other);
+		virtual void	executeConcrete() const;
 };
 
 #endif

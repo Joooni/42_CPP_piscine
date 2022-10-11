@@ -12,11 +12,11 @@ class RobotomyRequestForm: public Form
 {
 	public:
 		RobotomyRequestForm();
-		RobotomyRequestForm(const RobotomyRequestForm &src);
 		RobotomyRequestForm(const std::string target);
-
-		void			swap(RobotomyRequestForm &other)
-		virtual void	executeConcrete(const Bureaucrat &executor) const;
+		RobotomyRequestForm(const RobotomyRequestForm &src);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
+//		void			swap(RobotomyRequestForm &other);
+		virtual void	executeConcrete() const;
 };
 
 #endif
