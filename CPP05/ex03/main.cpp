@@ -5,67 +5,26 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+#include "Intern.hpp"
+
 int main(void)
 {
-	std::cout << std::endl << "\t\t(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Test 1 ✧ﾟ･: *ヽ(◕ヮ◕ヽ)" << std::endl;
-	try
-	{
-		Bureaucrat					Hermes;
-		ShrubberyCreationForm		Document;
-		ShrubberyCreationForm		ShrubDoc("Kleingarten 1");
+	Intern		deskguy;
+	Bureaucrat	Beholder("Beholder Monster", 3);
+	Form		*form;
 
-		std::cout << Hermes << std::endl;
-		std::cout << Document << std::endl;
-		Document.beSigned(Hermes);
-		ShrubDoc.beSigned(Hermes);
-		std::cout << Hermes << std::endl;
-		std::cout << Document << std::endl;
-		Document.execute(Hermes);
-		ShrubDoc.execute(Hermes);
-	}
-	catch(std::exception &exception)
-	{
-		std::cout << "Exception caught! " << exception.what() << std::endl;
-	}
-	std::cout << std::endl << "\t\t(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Test 2 ✧ﾟ･: *ヽ(◕ヮ◕ヽ)" << std::endl;
-	try
-	{
-		Bureaucrat	Hermes;
-		RobotomyRequestForm		Document("Cake Requisition Form BR-0W-N132");
-		RobotomyRequestForm		Copy(Document);
-
-		std::cout << Hermes << std::endl;
-		std::cout << Document << std::endl;
-		std::cout << Copy << std::endl;
-		Copy.beSigned(Hermes);
-		std::cout << Hermes << std::endl;
-		std::cout << Document << std::endl;
-		std::cout << Copy << std::endl;
-		Copy.execute(Hermes);
-	}
-	catch(std::exception &exception)
-	{
-		std::cout << "Exception caught! " << exception.what() << std::endl;
-	}
-	std::cout << std::endl << "\t\t(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Test 3 ✧ﾟ･: *ヽ(◕ヮ◕ヽ)" << std::endl;
-	try
-	{
-		Bureaucrat					Hermes;
-		PresidentialPardonForm		PPForm("Beer Consumption Form B4Y-R3U7H3R");
-		PresidentialPardonForm		Copy;
-
-		std::cout << Hermes << std::endl;
-		std::cout << PPForm << std::endl;
-		std::cout << Copy << std::endl;
-		Copy = PPForm;
-		PPForm.beSigned(Hermes);
-		std::cout << Hermes << std::endl;
-		std::cout << PPForm << std::endl;
-		std::cout << Copy << std::endl;
-		PPForm.execute(Hermes);
-	}
-	catch(std::exception &exception)
-	{
-		std::cout << "Exception caught! " << exception.what() << std::endl;
-	}
+	form = deskguy.makeForm("this should not work", "random");
+	if (form)
+		delete form;
+	form = deskguy.makeForm("shrubbery creation", "shrub.txt");
+	if (form)
+		delete form;
+	form = deskguy.makeForm("robotomy request", "Bender");
+	if (form)
+		delete form;
+	form = deskguy.makeForm("presidential pardon", "Zap Brannigan");
+	form->beSigned(Beholder);
+	form->execute(Beholder);
+	if (form)
+		delete form;
 }

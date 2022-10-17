@@ -2,7 +2,7 @@ NAME	= Bureaucrat
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
-SRCS	=	main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRCS	=	main.cpp Bureaucrat.cpp Intern.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 all:	${NAME}
 

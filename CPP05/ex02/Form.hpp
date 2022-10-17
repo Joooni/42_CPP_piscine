@@ -18,7 +18,7 @@ class Form
 		Form(std::string name, std::string target, int gradeToSign, int gradeToExecute);
 		Form(const Form &src);
 		Form &operator=(const Form &rhs);
-		~Form();
+		virtual ~Form();
 
 		virtual void	swap(Form &other);
 
