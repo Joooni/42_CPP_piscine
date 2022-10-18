@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-
+	std::cout << std::string(50, '-') << std::endl;
 	{
 		ClapTrap	Bratan("Bratan");
 		ClapTrap	Ulf;
@@ -25,6 +25,7 @@ int	main(void)
 	std::cout << std::string(50, '-') << std::endl;
 	{
 		ClapTrap	Alpha("Bre");
-		ClapTrap	Beta = ClapTrap();
+		ClapTrap	Beta;
 	}
+	std::cout << std::string(50, '-') << std::endl;
 }

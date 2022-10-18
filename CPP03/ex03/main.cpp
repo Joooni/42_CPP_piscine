@@ -5,6 +5,8 @@
 
 int	main(void)
 {
+	std::cout << std::string(50, '-') << std::endl;
+	{
 	std::cout << std::endl << "Creating ClapTrap: " << std::endl;
 	ClapTrap	Bratan("Bratan");
 	std::cout << std::endl << "Creating ScavTrap: " << std::endl;
@@ -84,8 +86,17 @@ int	main(void)
 	Bruh.beRepaired(10);
 	Bruh.beRepaired(10);
 	Bruh.beRepaired(10);
+	}
+	std::cout << std::string(50, '-') << std::endl;
+	{
 	std::cout << "and now for some diamond sheeeet" << std::endl;
-	Brudi.whoAmI();
-	Brudi.attack("den Bre");
+	DiamondTrap DT;
+	DT.attack("den Bratan");
+	DT.beRepaired(5);
+	DT.guardGate();
+	DT.highFivesGuys();
+	DT.takeDamage(5);
+	DT.whoAmI();
+	}
 	return (0);
 }

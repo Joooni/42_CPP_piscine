@@ -1,8 +1,8 @@
 #include "ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap() : name
-{("Claprich"), HP(10), EP(10), AD(0)
+ClapTrap::ClapTrap() : name("Claprich"), HP(10), EP(10), AD(0)
+{
 	std::cout << "Standard ClapStructor called" << std::endl;
 }
 
