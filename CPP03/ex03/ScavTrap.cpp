@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "ScavStructor with name parameter called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &ct)
+ScavTrap::ScavTrap(const ScavTrap &ct): ClapTrap(ct.name)
 {
 	this->name = ct.name;
 	this->HP = ct.HP;

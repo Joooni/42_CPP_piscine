@@ -19,7 +19,7 @@ FragTrap::FragTrap(std::string name)
 	std::cout << "FragStructor with name parameter called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &ct)
+FragTrap::FragTrap(const FragTrap &ct): ClapTrap(ct.name)
 {
 	this->name = ct.name;
 	this->HP = ct.HP;

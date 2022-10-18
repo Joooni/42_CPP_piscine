@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(std::string name): name(name)
 	std::cout << "DiamondStructor with name parameter called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &ct) : name(ct.name)
+DiamondTrap::DiamondTrap(const DiamondTrap &ct): ClapTrap(ct.name), FragTrap(ct.name), ScavTrap(ct.name)
 {
 	HP = ct.HP;
 	EP = ct.EP;
