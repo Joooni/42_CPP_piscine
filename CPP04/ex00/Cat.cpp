@@ -6,7 +6,7 @@ Cat::Cat()
 	std::cout << "Standard Cat Constructor called, meow." << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+Cat::Cat(const Cat &src): Animal()
 {
 	*this = src;
 	std::cout << "Cat Copy Constructor called, meow meow." << std::endl;

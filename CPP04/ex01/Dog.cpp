@@ -3,23 +3,23 @@
 Dog::Dog()
 {
 	this->_type = "Dog";
-	this->_brain = new Brain();
+	this->_brain = new Brain;
 	std::cout << "Standard Dog Constructor called, borf." << std::endl;
 }
 
-Dog::Dog(const Dog &rhs)
+Dog::Dog(const Dog &rhs): Animal()
 {
-	*this = rhs;
-	this->_brain = rhs.getBrain();
+	this->_type = rhs.getType();
+	this->_brain = new Brain;
+	*(this->_brain) = (*rhs._brain);
 	std::cout << "Dog Copy Constructor called, borf borf." << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &rhs)
 {
 	this->_type = rhs.getType();
-	delete this->_brain;
-	this->_brain = new Brain(*rhs._brain);
-	std::cout << "Assignment operator Dog called" << std::endl;
+	*(this->_brain) = (*rhs._brain);
+	std::cout << "Assignment operator Cat called" << std::endl;
 	return (*this);
 }
 

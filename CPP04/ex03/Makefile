@@ -9,6 +9,12 @@ all:	${NAME}
 ${NAME}:
 	${CC} ${SRCS} ${FLAGS} -o ${NAME}
 
+docker:
+	docker run -ti -v $(PWD):/test memory-test:0.1 bash -c "cd /test/; make re && valgrind --track-origins=yes --leak-check=full ./${NAME}"
+
+debug:
+	${CC} ${SRCS} ${FLAGS} -D M_DEBUG=1 -o ${NAME}
+
 fclean:
 	rm -f ${NAME}
 

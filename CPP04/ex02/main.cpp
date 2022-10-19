@@ -5,35 +5,62 @@
 #include "WrongCat.hpp"
 #include "Brain.hpp"
 
-#define	NUMBER_OF_ANIMALS	10
-
-int main()
+int main(void)
 {
-	AAnimal	*animals[NUMBER_OF_ANIMALS];
-
-	for (int i = 0; i < NUMBER_OF_ANIMALS; i++)
 	{
-		if (i < NUMBER_OF_ANIMALS / 2)
-			animals[i] = new Dog();
-		else
-			animals[i] = new Cat();
-		std::cout << animals[i]->getType() << std::endl;
+		Dog Borfer;
+		Borfer.getBrain()->setIdea("where food", 0);
+		std::cout << "Idea[0]: " << Borfer.getBrain()->getIdea(0) << std::endl;
 	}
+	std::cout << std::string(50, '-') << std::endl;
+	{
+		Cat Felix;
+		std::cout << "Idea[0]: " << Felix.getBrain()->getIdea(0) << std::endl;
+		Felix.getBrain()->setIdea("where bed", 0);
+		std::cout << "Idea set" << std::endl;
+		std::cout << "Idea[0]: " << Felix.getBrain()->getIdea(0) << std::endl;
+	}
+	std::cout << std::string(50, '-') << std::endl;
+	std::cout << "shallow copy test"  << std::endl;
+	std::cout << std::string(50, '-') << std::endl;
+	{
+		std::cout << "Check if Brain works" << std::endl;
+		Dog	*Doggo = new Dog();
+		Dog *Borfer = new Dog();
+		Doggo->getBrain()->setIdea("Where food", 0);
+		Doggo->getBrain()->setIdea("Where mate", 1);
+		Doggo->getBrain()->setIdea("Where sun", 2);
+		Doggo->getBrain()->setIdea("Where bed", 3);
+		std::cout << std::endl << "####################" << std::endl << std::endl;
+		std::cout << "Doggos first thought is about food:" << std::endl;
+		std::cout << Doggo->getBrain()->ideas[0] << std::endl;
+		std::cout << "Borfers first thought:" << std::endl;
+		std::cout << Borfer->getBrain()->ideas[0] << std::endl;
 
-	Brain	*brain;
-	brain = animals[4]->getBrain();
-	brain->setIdea("Where food", 0);
-	brain->setIdea("Where mate", 1);
-	brain->setIdea("Where sun", 2);
-	brain->setIdea("Where bed", 3);
-	std::cout << std::endl << "####################" << std::endl << std::endl;
-	std::cout << "Animal at Index 4 first thought is about food:" << std::endl;
-	std::cout << animals[4]->getBrain()->ideas[0] << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
+		std::cout << "Check for deepest of copies" << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
+		(*Borfer) = (*Doggo);
 
-	*(animals[9]) = *(animals[4]);
-	std::cout << "Animal at index 9 fourth thought is about sleep:" << std::endl;
-	std::cout << animals[9]->getBrain()->ideas[3] << std::endl;
-	std::cout << std::endl << "####################" << std::endl << std::endl;
-	for (int i = 0; i < NUMBER_OF_ANIMALS; i++)
-		delete animals[i];
+		std::cout << "Doggos fourth thought:" << std::endl;
+		std::cout << Doggo->getBrain()->ideas[3] << std::endl;
+		std::cout << "Borfers fourth thought should be the same:" << std::endl;
+		std::cout << Borfer->getBrain()->ideas[3] << std::endl;
+		std::cout << std::endl << "####################" << std::endl << std::endl;
+		std::cout << "Set first idea of doggo to Butterflies" << std::endl;
+		Doggo->setIdea("Butterflies", 0);
+		std::cout << "Doggos first thought:" << std::endl;
+		std::cout << Doggo->getBrain()->ideas[0] << std::endl;
+		std::cout << "Borfers first thought:" << std::endl;
+		std::cout << Borfer->getBrain()->ideas[0] << std::endl;
+		std::cout << std::endl << std::string(50, '-') << std::endl << std::endl;
+		delete Borfer;
+		delete Doggo;
+	}
+	std::cout << std::string(50, '-') << std::endl;
+	{
+		// uncomment for demonstrating that it is an abstract class
+		// AAnimal a = new AAnimal;
+	}
+	return (0);
 }

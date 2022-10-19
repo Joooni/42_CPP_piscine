@@ -3,22 +3,22 @@
 Cat::Cat()
 {
 	this->_type = "Cat";
-	this->_brain = new Brain();
+	this->_brain = new Brain;
 	std::cout << "Standard Cat Constructor called, meow." << std::endl;
 }
 
-Cat::Cat(const Cat &rhs)
+Cat::Cat(const Cat &rhs): Animal()
 {
-	*this = rhs;
-	this->_brain = rhs.getBrain();
+	this->_type = rhs.getType();
+	this->_brain = new Brain;
+	*(this->_brain) = (*rhs._brain);
 	std::cout << "Cat Copy Constructor called, meow meow." << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &rhs)
 {
 	this->_type = rhs.getType();
-	delete this->_brain;
-	this->_brain = new Brain(*rhs._brain);
+	*(this->_brain) = (*rhs._brain);
 	std::cout << "Assignment operator Cat called" << std::endl;
 	return (*this);
 }

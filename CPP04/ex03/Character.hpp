@@ -6,6 +6,10 @@
 # include "ICharacter.hpp"
 # include "AMateria.hpp"
 
+# ifndef M_DEBUG
+#  define M_DEBUG	1
+# endif
+
 class Character: public ICharacter
 {
 	public:
@@ -26,8 +30,8 @@ class Character: public ICharacter
 		std::string	_name;
 		AMateria	*_inventory[Character::_inventory_size];
 		int			_num_equipped;
-		AMateria	*_trash[100];
-		int			_num_trash;
+		// AMateria	*_trash[100];
+		// int			_num_trash;
 };
 
 #endif

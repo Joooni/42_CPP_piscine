@@ -8,6 +8,7 @@ class	Brain
 {
 	private:
 		static const int	nbr_ideas = 100;
+		std::string	ideas[Brain::nbr_ideas];
 
 	public:
 		Brain();
@@ -17,8 +18,7 @@ class	Brain
 
 		std::string getIdea(int i);
 		void		setIdea(std::string idea, int i);
-		
-		std::string	ideas[Brain::nbr_ideas];
+
 };
 
 #endif

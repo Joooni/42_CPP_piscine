@@ -6,7 +6,7 @@ Dog::Dog()
 	std::cout << "Standard Dog Constructor called, borf." << std::endl;
 }
 
-Dog::Dog(const Dog &src)
+Dog::Dog(const Dog &src): Animal()
 {
 	*this = src;
 	std::cout << "Dog Copy Constructor called, borf borf." << std::endl;

@@ -13,9 +13,12 @@ class	Cat: public AAnimal
 		Cat(const Cat &src);
 		~Cat();
 		Cat &operator=(const Cat &rhs);
-		virtual AAnimal& operator=(const AAnimal &src);
+		// virtual AAnimal& operator=(const AAnimal &src);
 		virtual void	makeSound() const;
 		virtual Brain	*getBrain() const;
+		std::string		getIdea(int i) const;
+		void			setIdea(std::string idea, int i);
+
 
 	private:
 		Brain	*_brain;

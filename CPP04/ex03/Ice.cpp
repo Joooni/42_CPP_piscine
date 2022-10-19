@@ -1,32 +1,39 @@
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria("ice")
+Ice::Ice()
 {
-	std::cout << "Ice constructor called" << std::endl;
+	this->_type = "ice";
+	if (M_DEBUG)
+		std::cout << "Ice constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice &src)
+Ice::Ice(const Ice &src): AMateria()
 {
-	*this = src;
-	std::cout << "Ice copy constructor called" << std::endl;
+	this->_type = src.getType();
+	if (M_DEBUG)
+		std::cout << "Ice copy constructor called" << std::endl;
 }
 
 Ice::~Ice()
 {
-	std::cout << "Ice destructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Ice destructor called" << std::endl;
 }
 
 Ice	&Ice::operator=(const Ice &rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
-	std::cout << "Ice copy assignment operator called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Ice copy assignment operator called" << std::endl;
 }
 
 AMateria	*Ice::clone() const
 {
-	return (new Ice(*this));
+	AMateria *newIce = new Ice;
+	return (newIce);
 }
+
 
 void		Ice::use(ICharacter &target)
 {

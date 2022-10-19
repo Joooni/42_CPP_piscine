@@ -2,13 +2,15 @@
 
 Cure::Cure(): AMateria("cure")
 {
-	std::cout << "Cure constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Cure constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure &src)
+Cure::Cure(const Cure &src): AMateria()
 {
-	*this = src;
-	std::cout << "Cure copy constructor called" << std::endl;
+	this->_type = src.getType();
+	if (M_DEBUG)
+		std::cout << "Cure copy constructor called" << std::endl;
 }
 
 Cure::~Cure()
@@ -20,13 +22,16 @@ Cure	&Cure::operator=(const Cure &rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
-	std::cout << "Cure copy assignment operator called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Cure copy assignment operator called" << std::endl;
 }
 
 AMateria	*Cure::clone() const
 {
-	return (new Cure(*this));
+	AMateria *newCure = new Cure;
+	return (newCure);
 }
+
 
 void		Cure::use(ICharacter &target)
 {

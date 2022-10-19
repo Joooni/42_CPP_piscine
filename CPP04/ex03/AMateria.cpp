@@ -2,32 +2,36 @@
 
 // Constrcutors, destructors, OCCF stuff
 
-AMateria::AMateria()
+AMateria::AMateria(): _type("AMaterium")
 {
-	std::cout << "AMateria constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "AMateria constructor called" << std::endl;
 }
 
 AMateria::AMateria( std::string const&type): _type(type)
 {
-	std::cout << "AMateria name constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "AMateria name constructor called" << std::endl;
 }
 
-AMateria::AMateria(const AMateria &src)
+AMateria::AMateria(const AMateria &src): _type(src._type)
 {
-	*this = src;
-	std::cout << "AMateria copy constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "AMateria copy constructor called" << std::endl;
 }
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria destructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "AMateria destructor called" << std::endl;
 }
 
 AMateria	&AMateria::operator=(const AMateria &rhs)
 {
 	this->_type = rhs.getType();
 	return (*this);
-	std::cout << "AMateria copy assignment called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "AMateria copy assignment called" << std::endl;
 }
 
 // member functions

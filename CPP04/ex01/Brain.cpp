@@ -28,10 +28,18 @@ Brain::~Brain()
 
 std::string	Brain::getIdea(int i)
 {
-	return (this->ideas[i]);
+	if (i < 0 || i > 99)
+		return ("invalid idea index, idiot");
+	else
+		return (this->ideas[i]);
 }
 
 void		Brain::setIdea(std::string idea, int i)
 {
+	if (i < 0 || i > 99)
+	{
+		std::cout << "invalid idea index, idiot" << std::endl;
+		return ;
+	}
 	this->ideas[i] = idea;
 }

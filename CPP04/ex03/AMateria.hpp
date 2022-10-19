@@ -6,6 +6,10 @@
 
 # include "ICharacter.hpp"
 
+# ifndef M_DEBUG
+#  define M_DEBUG	0
+# endif
+
 class ICharacter;
 
 class AMateria
@@ -14,11 +18,11 @@ class AMateria
 		std::string	_type;
 
 	public:
-		AMateria();
-		AMateria( std::string const &type);
-		AMateria(const AMateria &src);
-		virtual ~AMateria();
-		AMateria			&operator=(const AMateria &rhs);
+					AMateria();
+					AMateria( std::string const &type);
+					AMateria(const AMateria &src);
+		virtual		~AMateria();
+		AMateria	&operator=(const AMateria &rhs);
 
 		const std::string	&getType() const;
 		virtual AMateria	*clone() const = 0;

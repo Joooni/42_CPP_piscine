@@ -7,28 +7,30 @@ Cat::Cat()
 	std::cout << "Standard Cat Constructor called, meow." << std::endl;
 }
 
-Cat::Cat(const Cat &rhs)
+Cat::Cat(const Cat &rhs): Animal()
 {
-	*this = rhs;
-	this->_brain = rhs.getBrain();
+	this->_type = rhs.getType();
+	this->_brain = new Brain;
+	*(this->_brain) = (*rhs._brain);
 	std::cout << "Cat Copy Constructor called, meow meow." << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &rhs)
 {
-	this->type = rhs.getType();
-	*(this->_brain) = *(rhs.getBrain());
+	this->_type = rhs.getType();
+	this->_brain = new Brain;
+	*(this->_brain) = (*rhs._brain);
 	std::cout << "Assignment operator Cat called" << std::endl;
 	return (*this);
 }
 
-AAnimal &Cat::operator=(const AAnimal &rhs)
+/* AAnimal &Cat::operator=(const AAnimal &rhs)
 {
 	this->type = rhs.getType();
 	*(this->_brain) = *(rhs.getBrain());
 	std::cout << "Abstract Animal Assignment operator for Cat called" << std::endl;
 	return (*this);
-}
+} */
 
 Cat::~Cat()
 {
@@ -44,4 +46,14 @@ void Cat::makeSound() const
 Brain *Cat::getBrain() const
 {
 	return (this->_brain);
+}
+
+std::string	Cat::getIdea(int i) const
+{
+	return (this->_brain->getIdea(i));
+}
+
+void		Cat::setIdea(std::string idea, int i)
+{
+	this->_brain->setIdea(idea, i);
 }
