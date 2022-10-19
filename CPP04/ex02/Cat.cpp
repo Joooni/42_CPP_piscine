@@ -18,11 +18,11 @@ Cat::Cat(const Cat &rhs): Animal()
 Cat &Cat::operator=(const Cat &rhs)
 {
 	this->_type = rhs.getType();
-	this->_brain = new Brain;
 	*(this->_brain) = (*rhs._brain);
 	std::cout << "Assignment operator Cat called" << std::endl;
 	return (*this);
 }
+
 
 /* AAnimal &Cat::operator=(const AAnimal &rhs)
 {
