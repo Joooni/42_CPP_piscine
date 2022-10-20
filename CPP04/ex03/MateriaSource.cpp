@@ -36,8 +36,6 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
 	for (int i = 0; i < MateriaSource::_known_materias_size; i++)
 	{
-		if (this->_known_materias[i] != NULL)
-			delete this->_known_materias[i];
 		if (rhs._known_materias[i])
 			this->_known_materias[i] = rhs._known_materias[i]->clone();
 		else
@@ -50,30 +48,35 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 
 void	MateriaSource::learnMateria(AMateria *newMateria)
 {
-	if (this->_num_known_materias >= MateriaSource::_known_materias_size)
+	int i = 0;
+
+	while (i < MateriaSource::_known_materias_size && this->_known_materias[i])
+		i++;
+	if (i < MateriaSource::_known_materias_size)
 	{
-		std::cout << "This MateriaSource cannot learn any more materias" << std::endl;
-		delete (newMateria);
-	}
-	else
-	{
-		this->_known_materias[_num_known_materias] = newMateria->clone();
+		this->_known_materias[i] = newMateria->clone();
 		this->_num_known_materias++;
 		std::cout << "Learned new " << newMateria->getType() << " Materia at slot " << this->_num_known_materias << std::endl;
 	}
-
+	else
+		std::cout << "This MateriaSource cannot learn any more materias" << std::endl;
+	delete newMateria;
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type)
 {
 	int i = 0;
-
-	while (i < MateriaSource::_known_materias_size && this->_known_materias[i] && this->_known_materias[i]->getType() == type)
+	if (type != "ice" && type != "cure")
+	{
+		std::cout << "Can't create a Materia that does not exist!" << std::endl;
+		return (0);
+	}
+	while (i < MateriaSource::_known_materias_size && this->_known_materias[i] && this->_known_materias[i]->getType() != type)
 		i++;
 	if (i < MateriaSource::_known_materias_size && this->_known_materias[i])
 		return (this->_known_materias[i]->clone());
 	else
-		return (NULL);
+		return (0);
 }
 
 AMateria	*MateriaSource::getKnownMateria(int idx) const

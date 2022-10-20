@@ -1,7 +1,7 @@
 NAME	= MagesAndMonsters
 
 CC		= c++
-FLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
+FLAGS	= -Wall -Wextra -Werror -std=c++98 -g -pedantic
 SRCS	= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 all:	${NAME}

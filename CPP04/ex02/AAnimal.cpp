@@ -7,13 +7,13 @@ AAnimal::AAnimal()
 
 AAnimal::AAnimal(const AAnimal &src)
 {
-	this->type = src.type;
+	this->_type = src._type;
 	std::cout << "Abstract Animal copy constructor called" << std::endl;
 }
 
 AAnimal	&AAnimal::operator=(const AAnimal &rhs)
 {
-	this->type = rhs.type;
+	this->_type = rhs._type;
 	std::cout << "Abstract Animal copy assignment operator called" << std::endl;
 	return (*this);
 }
@@ -25,5 +25,5 @@ AAnimal::~AAnimal(void)
 
 const std::string	&AAnimal::getType() const
 {
-	return (this->type);
+	return (this->_type);
 }

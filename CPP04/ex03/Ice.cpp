@@ -30,7 +30,7 @@ Ice	&Ice::operator=(const Ice &rhs)
 
 AMateria	*Ice::clone() const
 {
-	AMateria *newIce = new Ice;
+	AMateria *newIce = new Ice();
 	return (newIce);
 }
 

@@ -17,7 +17,7 @@ class AAnimal
 		virtual void		makeSound() const = 0;
 
 	protected:
-		std::string			type;
+		std::string			_type;
 };
 
 std::ostream	&operator<<(std::ostream &os, const AAnimal &aanimal);

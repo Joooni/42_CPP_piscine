@@ -2,12 +2,12 @@
 
 Cat::Cat()
 {
-	this->type = "Cat";
+	this->_type = "Cat";
 	this->_brain = new Brain();
 	std::cout << "Standard Cat Constructor called, meow." << std::endl;
 }
 
-Cat::Cat(const Cat &rhs): Animal()
+Cat::Cat(const Cat &rhs): AAnimal()
 {
 	this->_type = rhs.getType();
 	this->_brain = new Brain;

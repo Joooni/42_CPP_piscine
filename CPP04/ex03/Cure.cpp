@@ -15,7 +15,8 @@ Cure::Cure(const Cure &src): AMateria()
 
 Cure::~Cure()
 {
-	std::cout << "Cure destructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Cure destructor called" << std::endl;
 }
 
 Cure	&Cure::operator=(const Cure &rhs)
@@ -28,7 +29,7 @@ Cure	&Cure::operator=(const Cure &rhs)
 
 AMateria	*Cure::clone() const
 {
-	AMateria *newCure = new Cure;
+	AMateria *newCure = new Cure();
 	return (newCure);
 }
 

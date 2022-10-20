@@ -6,7 +6,7 @@
 # include "IMateriaSource.hpp"
 
 # ifndef M_DEBUG
-#  define M_DEBUG	1
+#  define M_DEBUG	0
 # endif
 class MateriaSource: public IMateriaSource
 {

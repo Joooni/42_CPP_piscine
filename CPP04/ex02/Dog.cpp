@@ -2,12 +2,12 @@
 
 Dog::Dog()
 {
-	this->type = "Dog";
+	this->_type = "Dog";
 	this->_brain = new Brain();
 	std::cout << "Standard Dog Constructor called, borf." << std::endl;
 }
 
-Dog::Dog(const Dog &rhs): Animal()
+Dog::Dog(const Dog &rhs): AAnimal()
 {
 	this->_type = rhs.getType();
 	this->_brain = new Brain;

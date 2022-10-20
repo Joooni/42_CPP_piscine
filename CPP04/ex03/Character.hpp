@@ -7,7 +7,7 @@
 # include "AMateria.hpp"
 
 # ifndef M_DEBUG
-#  define M_DEBUG	1
+#  define M_DEBUG	0
 # endif
 
 class Character: public ICharacter
@@ -19,17 +19,16 @@ class Character: public ICharacter
 		Character &operator=(const Character &rhs);
 		~Character();
 
-		virtual std::string const	&getName() const;
-		virtual void				equip(AMateria *m);
-		virtual void				unequip(int idx);
-		virtual void				use(int idx, ICharacter &target);
+		std::string const	&getName() const;
+		void				equip(AMateria *m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter &target);
 
 	private:
 		static const int	_inventory_size = 4;
 
 		std::string	_name;
 		AMateria	*_inventory[Character::_inventory_size];
-		int			_num_equipped;
 		// AMateria	*_trash[100];
 		// int			_num_trash;
 };
