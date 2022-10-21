@@ -14,6 +14,7 @@ docker:
 
 debug:
 	${CC} -D M_DEBUG=1 ${SRCS} ${FLAGS} -o ${NAME}
+
 fclean:
 	rm -f ${NAME}
 

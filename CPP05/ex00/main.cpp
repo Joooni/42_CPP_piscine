@@ -77,4 +77,5 @@ int main(void)
 	{
 		std::cout << "Exception caught! " << exception.what() << std::endl;
 	}
+	return(0);
 }
