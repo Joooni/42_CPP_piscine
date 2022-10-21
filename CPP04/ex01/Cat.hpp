@@ -11,6 +11,7 @@
 # endif
 
 
+
 class	Cat: public Animal
 {
 	public:
