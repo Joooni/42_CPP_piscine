@@ -4,6 +4,10 @@
 # include <iostream>
 # include <string>
 
+# ifndef M_DEBUG
+#  define M_DEBUG	0
+# endif
+
 class	Brain
 {
 	private:
@@ -17,7 +21,7 @@ class	Brain
 
 		std::string getIdea(int i);
 		void		setIdea(std::string idea, int i);
-		
+
 		std::string	ideas[Brain::nbr_ideas];
 };
 

@@ -4,6 +4,11 @@
 # include <iostream>
 # include <string>
 
+# ifndef M_DEBUG
+#  define M_DEBUG	0
+# endif
+
+
 class	WrongAnimal
 {
 	public:

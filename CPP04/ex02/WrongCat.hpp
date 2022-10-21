@@ -5,6 +5,11 @@
 # include <string>
 # include "WrongAnimal.hpp"
 
+# ifndef M_DEBUG
+#  define M_DEBUG	0
+# endif
+
+
 class	WrongCat: public WrongAnimal
 {
 	public:

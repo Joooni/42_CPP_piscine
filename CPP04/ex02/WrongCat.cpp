@@ -3,18 +3,21 @@
 WrongCat::WrongCat()
 {
 	this->type = "WrongCat";
-	std::cout << "Standard WrongCat Constructor called, meow." << std::endl;
+	if (M_DEBUG)
+		std::cout << "Standard WrongCat Constructor called, meow." << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &src): WrongAnimal()
 {
 	*this = src;
-	std::cout << "WrongCat Copy Constructor called, meow meow." << std::endl;
+	if (M_DEBUG)
+		std::cout << "WrongCat Copy Constructor called, meow meow." << std::endl;
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat Destructor called, sad meow :(" << std::endl;
+	if (M_DEBUG)
+		std::cout << "WrongCat Destructor called, sad meow :(" << std::endl;
 }
 
 void WrongCat::makeSound() const

@@ -4,7 +4,8 @@ Cat::Cat()
 {
 	this->_type = "Cat";
 	this->_brain = new Brain;
-	std::cout << "Standard Cat Constructor called, meow." << std::endl;
+	if (M_DEBUG)
+		std::cout << "Standard Cat Constructor called, meow." << std::endl;
 }
 
 Cat::Cat(const Cat &rhs): Animal()
@@ -12,14 +13,16 @@ Cat::Cat(const Cat &rhs): Animal()
 	this->_type = rhs.getType();
 	this->_brain = new Brain;
 	*(this->_brain) = (*rhs._brain);
-	std::cout << "Cat Copy Constructor called, meow meow." << std::endl;
+	if (M_DEBUG)
+		std::cout << "Cat Copy Constructor called, meow meow." << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &rhs)
 {
 	this->_type = rhs.getType();
 	*(this->_brain) = (*rhs._brain);
-	std::cout << "Assignment operator Cat called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Assignment operator Cat called" << std::endl;
 	return (*this);
 }
 
@@ -34,7 +37,8 @@ Cat &Cat::operator=(const Cat &rhs)
 Cat::~Cat()
 {
 	delete this->_brain;
-	std::cout << "Cat Destructor called, sad meow :(" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Cat Destructor called, sad meow :(" << std::endl;
 }
 
 void Cat::makeSound() const

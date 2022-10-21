@@ -2,25 +2,29 @@
 
 WrongAnimal::WrongAnimal() : type("nondescript WrongAnimal")
 {
-	std::cout << "WrongAnimal standard constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "WrongAnimal standard constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
 	*this = src;
-	std::cout << "WrongAnimal copy constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 {
 	this->type = src.getType();
-	std::cout << "WrongAnimal assignment operator called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "WrongAnimal assignment operator called" << std::endl;
 	return (*this);
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Standard destructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Standard destructor called" << std::endl;
 }
 
 std::string WrongAnimal::getType() const

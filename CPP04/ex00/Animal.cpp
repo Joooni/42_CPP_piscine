@@ -2,25 +2,29 @@
 
 Animal::Animal() : _type("nondescript animal")
 {
-	std::cout << "Animal standard constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Animal standard constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal &src)
 {
 	*this = src;
-	std::cout << "Animal copy constructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &src)
 {
 	this->_type = src.getType();
-	std::cout << "Animal assignment operator called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Animal assignment operator called" << std::endl;
 	return (*this);
 }
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Animal destructor called" << std::endl;
 }
 
 std::string Animal::getType() const

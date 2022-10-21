@@ -4,7 +4,8 @@ Dog::Dog()
 {
 	this->_type = "Dog";
 	this->_brain = new Brain;
-	std::cout << "Standard Dog Constructor called, borf." << std::endl;
+	if (M_DEBUG)
+		std::cout << "Standard Dog Constructor called, borf." << std::endl;
 }
 
 Dog::Dog(const Dog &rhs): Animal()
@@ -12,14 +13,16 @@ Dog::Dog(const Dog &rhs): Animal()
 	this->_type = rhs.getType();
 	this->_brain = new Brain;
 	*(this->_brain) = (*rhs._brain);
-	std::cout << "Dog Copy Constructor called, borf borf." << std::endl;
+	if (M_DEBUG)
+		std::cout << "Dog Copy Constructor called, borf borf." << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &rhs)
 {
 	this->_type = rhs.getType();
 	*(this->_brain) = (*rhs._brain);
-	std::cout << "Assignment operator Cat called" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Assignment operator Cat called" << std::endl;
 	return (*this);
 }
 
@@ -34,7 +37,8 @@ Dog &Dog::operator=(const Dog &rhs)
 Dog::~Dog()
 {
 	delete this->_brain;
-	std::cout << "Dog Destructor called, sad borf :(" << std::endl;
+	if (M_DEBUG)
+		std::cout << "Dog Destructor called, sad borf :(" << std::endl;
 }
 
 void Dog::makeSound() const
