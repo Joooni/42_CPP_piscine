@@ -1,4 +1,4 @@
-NAME	= Serialization
+NAME	= Identification
 
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98 -pedantic
