@@ -2,6 +2,7 @@
 #include <string>
 #include <cmath>
 #include <climits>
+#include <cstdlib>
 
 int	pseudoHandler(std::string pseudo)
 {
