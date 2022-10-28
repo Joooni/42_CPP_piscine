@@ -5,10 +5,18 @@
 # include <string>
 
 template <typename T>
-void	iter(T *addr, int len, void (*f)(T))
+void	iter(T *addr, int len, void (*f)(T&))
 {
 	for (int i = 0; i < len; i++)
-		(f)(addr[i]);
+		(*f)(addr[i]);
+}
+
+template <typename T>
+void	iter(const T *arr, int len, void (*f)(const T&)) {
+	int	index = 0;
+
+	while (index < len)
+		(*f)(arr[index++]);
 }
 
 template <typename T>
@@ -18,15 +26,25 @@ void	print(T out)
 }
 
 template <typename T>
-void	double_it(T *input)
+void	double_it(T &input)
 {
-	*input = *input * 2;
+	input *= 2;
 }
 
 template <typename T>
-void	substract_one(T *input)
+void	substract_one(T &input)
 {
-	*input = *input - 1;
+	input--;
+}
+
+
+void add_one(int &input) {
+	input++;
+}
+
+void capitalization(char &input) {
+	input = std::toupper(input);
+	return;
 }
 
 #endif
