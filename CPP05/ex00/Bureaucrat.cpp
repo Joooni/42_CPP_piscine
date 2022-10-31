@@ -24,7 +24,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src): _name (src._name), _grade(src._gr
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &rhs)
 {
-	Bureaucrat(rhs).swap(*this);
+	this->~Bureaucrat();
+	new (this)Bureaucrat(rhs);
 	if (M_DEBUG == 1)
 		std::cout << "Bureaucrat copy operated" << std::endl;
 	return (*this);

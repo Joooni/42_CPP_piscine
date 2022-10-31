@@ -15,6 +15,7 @@ int main(void)
 		tmp = Morgan;
 		std::cout << Hermes << " reporting for duty!" << std::endl;
 		std::cout << Morgan << " reporting for duty!" << std::endl;
+		std::cout << tmp << " reporting for duty!" << std::endl;
 		Hermes.incrementGrade();
 		std::cout << Morgan.getName() << " promotes Hermes to Grade " << Hermes.getGrade() << "!" << std::endl;
 	}
