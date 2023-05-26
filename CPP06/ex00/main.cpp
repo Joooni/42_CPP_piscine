@@ -47,6 +47,7 @@ void	printChar(double nbr)
 
 void	printInt(double nbr)
 {
+
 	std::cout << "in:\t";
 	if (nbr > INT_MAX || nbr < INT_MIN)
 		std::cout << "impossible" << std::endl;

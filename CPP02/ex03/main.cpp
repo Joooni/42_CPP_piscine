@@ -9,7 +9,13 @@ int main( void ) {
 	Point d(4, 5);
 	Point e(5, 2);
 	Point test(0, 0);
-
+	std::cout << test << a << std::endl;
+	test = a;
+	test = b;
+	test = c;
+	test = d;
+	test = e;
+	std::cout << test << a << std::endl;
 	std::cout << "Triangle vertices:\na: " << a << "\nb: " << b << "\nc: " << c << std::endl;
 	std::cout << "Is point d at: " << d << " inside? (should be 1) " << bsp(a, b, c, d) << std::endl;
 	std::cout << "Is point e at: " << e << " inside? (should be 0) " << bsp(a, b, c, e) << std::endl;

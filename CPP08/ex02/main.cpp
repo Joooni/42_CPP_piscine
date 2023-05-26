@@ -49,4 +49,5 @@ int main()
 		std::list<int> s(mstack);
 	}
 	return 0;
+
 }

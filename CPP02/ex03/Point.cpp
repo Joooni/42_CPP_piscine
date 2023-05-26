@@ -16,9 +16,16 @@ Point::~Point()
 {
 }
 
+// Point &Point::operator=(Point &src)
+// {
+// 	return (src);
+// }
+
 Point &Point::operator=(Point &src)
 {
-	return (src);
+    if (this != &src)
+        new (this) Point(src.getX().toFloat(), src.getY().toFloat());
+    return (*this);
 }
 
 Fixed	Point::getX() const
